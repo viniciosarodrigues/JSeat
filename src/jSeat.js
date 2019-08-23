@@ -119,13 +119,12 @@ class JSeat {
      * @param {Posição vertical (Coluna)} yPosition 
      */
     verifyIfExistis(xPosition, yPosition) {
-        for(selected in this.selectedPositions) {
+        this.selectedPositions.forEach(position => {
             let argPositions = id = { xPosition, yPosition }
-            if(selected.id === argPositions) {
-                console.log('Encontrou');
+            if(position.id === argPositions) {
                 return true;
             }
-        }
+        });
         return false;
     }
     /**

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="pragma" content="no-cache">
+    </head>
+    <body>
+        <div id="jseat-example"></div>
+
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="jSeat.js"></script>
+        <script>
+            seat = new JSeat('jseat-example');
+            seat.addLine();
+            seat.addLine();
+            seat.addLine(3);
+            seat.log();
+            seat.removeLine();
+            seat.log();
+            seat.markHiddenSeat(2, 1);
+            seat.markHiddenSeat(2, 2);
+            seat.log();
+
+        </script>
+    </body>
+</html>

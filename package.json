@@ -1,0 +1,11 @@
+{
+  "name": "jseat",
+  "version": "1.0.0",
+  "description": "JSeat Project is a full-blown seat map library open source",
+  "main": "index.js",
+  "author": "viniciosarodrigues",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
+}

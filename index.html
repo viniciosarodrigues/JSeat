@@ -7,7 +7,7 @@
         <div id="jseat-example"></div>
 
         <script src="node_modules/jquery/dist/jquery.min.js"></script>
-        <script src="jSeat.js"></script>
+        <script src="./src/jSeat.js"></script>
         <script>
             seat = new JSeat('jseat-example');
             seat.addLine();
@@ -18,6 +18,14 @@
             seat.log();
             seat.markHiddenSeat(2, 1);
             seat.markHiddenSeat(2, 2);
+            seat.log();
+
+            position = new Position(1, 2);
+            position.value = 1.0;
+            position.title = 'Poltronas do setor A';
+
+            seat.selectedPositions.push(position);
+
             seat.log();
 
         </script>

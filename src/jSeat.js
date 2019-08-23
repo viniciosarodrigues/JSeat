@@ -8,13 +8,21 @@ jSeatTypes = {
     THEATER: 'THEATER'
 }
 
+/**
+ * Inicializa uma posição
+ */
 class Position {
     constructor(x, y) {
         if(x == undefined || y == undefined)
             throw Exception("Para instanciar a posicao, informe o valor de X e de Y.");
         else {
-            this.x = x;
-            this.y = y;
+            this.id = {
+                xPosition: x,
+                yPosition: y
+            };            
+            this.value = 0.0;
+            this.title = '';
+            this.description = 'Posicao X -> ' + x + ' | Posicao Y -> ' + y;
         }
     }
 }
@@ -103,13 +111,33 @@ class JSeat {
         }
     }
 
-    verifyIfExistis(xPostion, yPosition) {
-        return true;
+    /**
+     * 
+     * Verifica se existe a posicao do assento 
+     * 
+     * @param {Posição horizontal (Linha)} xPosition 
+     * @param {Posição vertical (Coluna)} yPosition 
+     */
+    verifyIfExistis(xPosition, yPosition) {
+        for(selected in this.selectedPositions) {
+            let argPositions = id = { xPosition, yPosition }
+            if(selected.id === argPositions) {
+                console.log('Encontrou');
+                return true;
+            }
+        }
+        return false;
     }
-
-    markHiddenSeat(xPostion, yPosition) {
-        if(!verifyIfExistis(xPostion, yPosition))
-            this.hiddenPositions.put(new Position(xPostion, yPosition));
+    /**
+     * 
+     * Marca como inutilizado se o assento não estiver sido marcado
+     * 
+     * @param {Posição horizontal (Linha)} xPosition 
+     * @param {Posição vertical (Coluna)} yPosition 
+     */
+    markHiddenSeat(xPosition, yPosition) {
+        if(!this.verifyIfExistis(xPosition, yPosition))
+            this.hiddenPositions.push(new Position(xPosition, yPosition));
         else
             throw Exception("Este assento já está marcado como invisível");
     }
